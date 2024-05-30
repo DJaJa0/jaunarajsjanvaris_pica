@@ -63,8 +63,15 @@ class picas_aplikacija extends JFrame implements ActionListener{
     JLabel piedevasLabel = new JLabel ("Piedevas:");
     piedevasLabel.setBounds(20, 170, 80, 25);
     add(piedevasLabel);
-    piedevas = new JComboBox<>(new String[] {"Šampinjoni - $1.50", "Olivas - $1.50",
+    piedevas = new JComboBox<>(new String[] {"Šampinjoni - 3.99€", "Olivas - 3.99€",
     		"Siera mērce - $1.50", "Nav"});
+    
+    JLabel merceLabel = new JLabel ("Mērce: ");
+    merceLabel.setBounds(20, 200, 80, 25);
+    add(merceLabel);
+    merce = new JComboBox<>(new String[]{"Tomātu - 1.99€", "Baltā - 1.99€", "Siera mērce - 1.99€", "Nav"});
+    merce.setBounds(100, 200, 200, 25);
+    add(merce);
     
 	
 	
