@@ -78,6 +78,10 @@ class picas_aplikacija extends JFrame implements ActionListener{
     pasutijumaPoga.addActionListener(this);
     add(pasutijumaPoga);
 	
+    setVisible(true);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    
+	}
 	
 	//public static void main(String[] args) {
 		//String izvele, vards, uzvards, adresse, picasNos; 
