@@ -34,6 +34,13 @@ public class picas_aplikacija() {
     nameField = new JTextField();
     nameField.setBounds(100, 20, 200, 25);
     add(nameField);
+    
+    JLabel addressLabel = new JLabel("Adrese:");
+    addressLabel.setBounds(20, 50, 80, 25);
+    add(addressLabel);
+    addressField = new JTextField();
+    addressField.setBounds(100, 50, 200, 25);
+    add(addressField);
 	
 	
 	//public static void main(String[] args) {
