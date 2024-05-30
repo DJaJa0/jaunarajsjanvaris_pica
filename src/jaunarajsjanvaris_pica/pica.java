@@ -28,30 +28,44 @@ class picas_aplikacija extends JFrame implements ActionListener{
     setSize(400, 350);
     setLayout(null);
     
-    JLabel nameLabel = new JLabel("Vārds:");
-    nameLabel.setBounds(20, 20, 80, 25);
-    add(nameLabel);
-    nameField = new JTextField();
-    nameField.setBounds(100, 20, 200, 25);
-    add(nameField);
+    JLabel vardaLabel = new JLabel("Vārds:");
+    vardaLabel.setBounds(20, 20, 80, 25);
+    add(vardaLabel);
+    vardaLauks = new JTextField();
+    vardaLauks.setBounds(100, 20, 200, 25);
+    add(vardaLauks);
     
-    JLabel addressLabel = new JLabel("Adrese:");
-    addressLabel.setBounds(20, 50, 80, 25);
-    add(addressLabel);
-    addressField = new JTextField();
-    addressField.setBounds(100, 50, 200, 25);
-    add(addressField);
+    JLabel addresesLabel = new JLabel("Adrese:");
+    addresesLabel.setBounds(20, 50, 80, 25);
+    add(addresesLabel);
+    addresesLauks = new JTextField();
+    addresesLauks.setBounds(100, 50, 200, 25);
+    add(addresesLauks);
     
-    JLabel phoneLabel = new JLabel("Tālrunis:");
-    phoneLabel.setBounds(20, 80, 80, 25);
-    add(phoneLabel);
-    phoneField = new JTextField();
-    phoneField.setBounds(100, 80, 200, 25);
-    add(phoneField);
+    JLabel telNrLabel = new JLabel("Tālrunis:");
+    telNrLabel.setBounds(20, 80, 80, 25);
+    add(telNrLabel);
+    numuraLauks = new JTextField();
+    numuraLauks.setBounds(100, 80, 200, 25);
+    add(numuraLauks);
     
-    deliveryCheckBox = new JCheckBox("Piegāde");
-    deliveryCheckBox.setBounds(20, 110, 100, 25);
-    add(deliveryCheckBox);
+    piegadesLauks = new JCheckBox("Piegāde");
+    piegadesLauks.setBounds(20, 110, 100, 25);
+    add(piegadesLauks);
+    
+    JLabel izmersLabel = new JLabel("Izmērs:");
+    izmersLabel.setBounds(20, 140, 80, 25);
+    add(izmersLabel);
+    izmers = new JComboBox<>(new String[]{"Mazā - 7.50€", "Vidējā - 10.00€", "Lielā - 15.99€"});
+    izmers.setBounds(100, 140, 200, 25);
+    add(izmers);
+    
+    JLabel piedevasLabel = new JLabel ("Piedevas:");
+    piedevasLabel.setBounds(20, 170, 80, 25);
+    add(piedevasLabel);
+    piedevas = new JComboBox<>(new String[] {"Šampinjoni - $1.50", "Olivas - $1.50",
+    		"Siera mērce - $1.50", "Nav"});
+    
 	
 	
 	//public static void main(String[] args) {
