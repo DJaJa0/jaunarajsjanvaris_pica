@@ -22,7 +22,7 @@ class picas_aplikacija extends JFrame implements ActionListener{
 	    private static final double mercesCena = 1.99;
 }
  
-public class picas_aplikacija() {
+	public picas_aplikacija() {
 	
 	setTitle("Picas Pasūtīšana");
     setSize(400, 350);
@@ -41,6 +41,17 @@ public class picas_aplikacija() {
     addressField = new JTextField();
     addressField.setBounds(100, 50, 200, 25);
     add(addressField);
+    
+    JLabel phoneLabel = new JLabel("Tālrunis:");
+    phoneLabel.setBounds(20, 80, 80, 25);
+    add(phoneLabel);
+    phoneField = new JTextField();
+    phoneField.setBounds(100, 80, 200, 25);
+    add(phoneField);
+    
+    deliveryCheckBox = new JCheckBox("Piegāde");
+    deliveryCheckBox.setBounds(20, 110, 100, 25);
+    add(deliveryCheckBox);
 	
 	
 	//public static void main(String[] args) {
