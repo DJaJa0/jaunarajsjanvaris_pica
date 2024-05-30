@@ -73,6 +73,10 @@ class picas_aplikacija extends JFrame implements ActionListener{
     merce.setBounds(100, 200, 200, 25);
     add(merce);
     
+    pasutijumaPoga = new JButton("Pasūtīt");
+    pasutijumaPoga.setBounds(150, 240, 100, 25);
+    pasutijumaPoga.addActionListener(this);
+    add(pasutijumaPoga);
 	
 	
 	//public static void main(String[] args) {
