@@ -1,5 +1,6 @@
 package jaunarajsjanvaris_pica;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -7,6 +8,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 class picas_aplikacija extends JFrame implements ActionListener{
@@ -20,7 +22,6 @@ class picas_aplikacija extends JFrame implements ActionListener{
 	    private static final double lielaPica = 15.99;
 	    private static final double piedevasCena = 3.99;
 	    private static final double mercesCena = 1.99;
-}
  
 	public picas_aplikacija() {
 	
@@ -83,9 +84,33 @@ class picas_aplikacija extends JFrame implements ActionListener{
     
 	}
 	
-	//public static void main(String[] args) {
-		//String izvele, vards, uzvards, adresse, picasNos; 
+	public void darbiba(ActionEvent e) {
+		if (e.getSource() == pasutijumaPoga) {
+            String vards = vardaLauks.getText();
+            String addrese = addresesLauks.getText();
+            String numurs = numuraLauks.getText();
+            boolean piegade = piegadesLauks.isSelected();
+            String izmeri = (String) izmers.getSelectedItem();
+            String piedeva = (String) piedevas.getSelectedItem();
+            String merces = (String) merce.getSelectedItem();
+            
+            double kopejasIzmaksas = kopIzmaksas(izmeri, piedeva, merces, piegade);
+            
+            rakstitFaila(vards, addrese, numurs, piegade, izmeri, piedeva, merces, kopejasIzmaksas);
+            
+            JOptionPane.showMessageDialog(this, "Jūsu pasūtījums ir veiksmīgi saņemts.\nKopējā cena: $"
+            + String.format("%.2f", kopIzmaksas));
+            
+            vardaLauks.setText("");
+            addresesLauks.setText("");
+            numuraLauks.setText("");
+            piegadesLauks.setSelected(false);
+            izmers.setSelectedIndex(0);
+            piedevas.setSelectedIndex(0);
+            merce.setSelectedIndex(0);
 
+	   }
+	  }
+	
 	}
 
-}
