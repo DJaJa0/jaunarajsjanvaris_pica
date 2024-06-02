@@ -65,7 +65,7 @@ class picas_aplikacija extends JFrame implements ActionListener{
     piedevasLabel.setBounds(20, 170, 80, 25);
     add(piedevasLabel);
     piedevas = new JComboBox<>(new String[] {"Šampinjoni - 3.99€", "Olivas - 3.99€",
-    		"Siera mērce - $1.50", "Nav"});
+    		"Siera mērce - 1.50€", "Nav"});
     
     JLabel merceLabel = new JLabel ("Mērce: ");
     merceLabel.setBounds(20, 200, 80, 25);
@@ -98,8 +98,8 @@ class picas_aplikacija extends JFrame implements ActionListener{
             
             rakstitFaila(vards, addrese, numurs, piegade, izmeri, piedeva, merces, kopejasIzmaksas);
             
-            JOptionPane.showMessageDialog(this, "Jūsu pasūtījums ir veiksmīgi saņemts.\nKopējā cena: $"
-            + String.format("%.2f", kopIzmaksas));
+            JOptionPane.showMessageDialog(this, "Jūsu pasūtījums ir noformēts.\nKopējā cena: €"
+            +String.format("%.2f", kopejasIzmaksas));
             
             vardaLauks.setText("");
             addresesLauks.setText("");
@@ -111,6 +111,31 @@ class picas_aplikacija extends JFrame implements ActionListener{
 
 	   }
 	  }
+	
+	private double kopIzmaksas(String lielums, String toppings, String sauce, boolean piegade){
+        double izmeraCena = lielumaCena(lielums);
+        double toppingsPrice = getToppingsPrice(toppings);
+        double saucePrice = getSaucePrice(sauce);
+
+        double kopejasIzmaksas = izmeraCena + toppingsPrice + saucePrice;
+
+        if (piegade)
+        	kopejasIzmaksas += 3.15;
+            return kopejasIzmaksas;
+    }
+	
+	private double lielumaCena(String lielums) {
+		switch (lielums) {
+            case "Maza - 7.50€":
+                return mazaPica;
+            case "Vidēja - 10.00€":
+                return videjaPica;
+            case "Liela - 15.99€":
+                return lielaPica;
+            default:
+                return 0.0; 
+        }
+    }
 	
 	}
 
