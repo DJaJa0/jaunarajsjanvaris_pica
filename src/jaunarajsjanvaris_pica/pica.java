@@ -2,6 +2,8 @@ package jaunarajsjanvaris_pica;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -96,7 +98,7 @@ class picas_aplikacija extends JFrame implements ActionListener{
             
             double kopejasIzmaksas = kopIzmaksas(izmeri, piedeva, merces, piegade);
             
-            rakstitFaila(vards, addrese, numurs, piegade, izmeri, piedeva, merces, kopejasIzmaksas);
+            ierakstitFaila(vards, addrese, numurs, piegade, izmeri, piedeva, merces, kopejasIzmaksas);
             
             JOptionPane.showMessageDialog(this, "Jūsu pasūtījums ir noformēts.\nKopējā cena: €"
             +String.format("%.2f", kopejasIzmaksas));
@@ -112,12 +114,12 @@ class picas_aplikacija extends JFrame implements ActionListener{
 	   }
 	  }
 	
-	private double kopIzmaksas(String lielums, String piedevas, String sauce, boolean piegade){
+	private double kopIzmaksas(String lielums, String piedevas, String merce, boolean piegade){
         double izmeraCena = lielumaCena(lielums);
         double piedevuCena = piedevuCena(piedevas);
-        double saucePrice = getSaucePrice(sauce);
+        double mercesCena = mercesCena(merce);
 
-        double kopejasIzmaksas = izmeraCena + piedevuCena + saucePrice;
+        double kopejasIzmaksas = izmeraCena + piedevuCena + mercesCena;
 
         if (piegade)
         	kopejasIzmaksas += 3.15;
@@ -147,5 +149,26 @@ class picas_aplikacija extends JFrame implements ActionListener{
                 return 0.0; 
         }
     }
+	
+	private double mercesCena(String merce) {
+        switch (merce) {
+            case "Tomātu - 1.99€":
+            case "Baltā - 1.99€":
+                return mercesCena;
+            default:
+                return 0.0; 
+        }
+    }
+	
+	private void ierakstitFaila(String vards, String addrese, String numurs, boolean piegade, 
+			String izmeri, String piedeva, String merce, double kopejasIzmaksas) {
+        try (FileWriter writer = new FileWriter("orders.txt", true)) {
+            
+            writer.write(vards+", "+addrese+", "+numurs+", "+piegade+", "+izmeri+
+            		", "+piedeva+", "+merce+", "+kopejasIzmaksas+"\n");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+      }
 	}
 
