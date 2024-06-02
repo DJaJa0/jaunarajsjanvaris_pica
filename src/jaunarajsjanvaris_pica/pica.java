@@ -112,12 +112,12 @@ class picas_aplikacija extends JFrame implements ActionListener{
 	   }
 	  }
 	
-	private double kopIzmaksas(String lielums, String toppings, String sauce, boolean piegade){
+	private double kopIzmaksas(String lielums, String piedevas, String sauce, boolean piegade){
         double izmeraCena = lielumaCena(lielums);
-        double toppingsPrice = getToppingsPrice(toppings);
+        double piedevuCena = piedevuCena(piedevas);
         double saucePrice = getSaucePrice(sauce);
 
-        double kopejasIzmaksas = izmeraCena + toppingsPrice + saucePrice;
+        double kopejasIzmaksas = izmeraCena + piedevuCena + saucePrice;
 
         if (piegade)
         	kopejasIzmaksas += 3.15;
@@ -137,5 +137,15 @@ class picas_aplikacija extends JFrame implements ActionListener{
         }
     }
 	
+	private double piedevuCena(String piedevas) {
+        switch (piedevas) {
+            case "Šampinjoni - 3.99€":
+            case "Olivas - 3.99€":
+            case "Siera mērce - 3.99€":
+                return piedevasCena;
+            default:
+                return 0.0; 
+        }
+    }
 	}
 
