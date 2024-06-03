@@ -72,13 +72,16 @@ class PicasAplikacija extends JFrame implements ActionListener {
         add(piedevasLabel);
         piedevas = new JComboBox<>(new String[]{"Šampinjoni - 3.99€", "Olivas - 3.99€", "Nav"});
         piedevas.setBounds(100, 170, 200, 25);
+        piedevas.addActionListener(this);
         add(piedevas);
 
         JLabel merceLabel = new JLabel("Mērce:");
         merceLabel.setBounds(20, 200, 80, 25);
         add(merceLabel);
-        merce = new JComboBox<>(new String[]{"Tomātu - 1.99€", "Baltā - 1.99€", "Siera mērce - 1.99€", "Nav"});
+        merce = new JComboBox<>(new String[]{"Tomātu - 1.99€", "Majonēze - 1.99€", 
+        		"Siera mērce - 1.99€", "Nav"});
         merce.setBounds(100, 200, 200, 25);
+        merce.addActionListener(this);
         add(merce);
         
         imageLabel = new JLabel();
@@ -107,6 +110,37 @@ class PicasAplikacija extends JFrame implements ActionListener {
                         break;
                     case "Lielā - 15.99€":
                         imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\LielaPica.png"));
+                        break;
+                }
+                
+            } else if (e.getSource() == piedevas) {
+                String selectedPiedevas = (String) piedevas.getSelectedItem();
+                switch (selectedPiedevas) {
+                    case "Šampinjoni - 3.99€":
+                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\senes1.png"));
+                        break;
+                    case "Olivas - 3.99€":
+                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\olive1.png"));
+                        break;
+                    case "Nav":
+                        imageLabel.setIcon(null);
+                        break;
+                }
+                
+            } else if (e.getSource() == merce) {
+                String selectedMerce = (String) merce.getSelectedItem();
+                switch (selectedMerce) {
+                    case "Tomātu - 1.99€":
+                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\tomato1.png"));
+                        break;
+                    case "Majonēze - 1.99€":
+                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mayo1.png"));
+                        break;
+                    case "Siera mērce - 1.99€":
+                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\siera1.png"));
+                        break;
+                    case "Nav":
+                        imageLabel.setIcon(null);
                         break;
                 }
                 
@@ -165,7 +199,6 @@ class PicasAplikacija extends JFrame implements ActionListener {
         switch (piedevas) {
             case "Šampinjoni - 3.99€":
             case "Olivas - 3.99€":
-           // case "Siera mērce - 1.50€":
                 return piedevasCena;
             default:
                 return 0.0;
@@ -175,7 +208,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
     private double mercesCena(String merce) {
         switch (merce) {
             case "Tomātu - 1.99€":
-            case "Baltā - 1.99€":
+            case "Majonēze - 1.99€":
             case "Siera mērce - 1.99€":
                 return mercesCena;
             default:
