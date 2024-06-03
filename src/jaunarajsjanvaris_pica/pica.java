@@ -1,9 +1,11 @@
 package jaunarajsjanvaris_pica;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -33,6 +35,8 @@ class PicasAplikacija extends JFrame implements ActionListener {
         setTitle("Picas Pasūtīšana");
         setSize(700, 380);
         setLayout(null);
+        
+        getContentPane().setBackground(new Color(255, 140, 80));
 
         JLabel vardaLabel = new JLabel("Vārds:");
         vardaLabel.setBounds(20, 20, 80, 25);
@@ -167,6 +171,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
             izmers.setSelectedIndex(0);
             piedevas.setSelectedIndex(0);
             merce.setSelectedIndex(0);
+            imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
         }
     }
 
