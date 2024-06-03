@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -20,6 +21,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
     private JCheckBox piegadesLauks;
     private JComboBox<String> izmers, piedevas, merce;
     private JButton pasutijumaPoga;
+    private JLabel imageLabel;
 
     private static final double mazaPica = 7.50;
     private static final double videjaPica = 10.00;
@@ -29,7 +31,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
 
     public PicasAplikacija() {
         setTitle("Picas Pasūtīšana");
-        setSize(400, 350);
+        setSize(700, 380);
         setLayout(null);
 
         JLabel vardaLabel = new JLabel("Vārds:");
@@ -62,6 +64,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
         add(izmersLabel);
         izmers = new JComboBox<>(new String[]{"Mazā - 7.50€", "Vidējā - 10.00€", "Lielā - 15.99€"});
         izmers.setBounds(100, 140, 200, 25);
+        izmers.addActionListener(this);
         add(izmers);
 
         JLabel piedevasLabel = new JLabel("Piedevas:");
@@ -77,6 +80,11 @@ class PicasAplikacija extends JFrame implements ActionListener {
         merce = new JComboBox<>(new String[]{"Tomātu - 1.99€", "Baltā - 1.99€", "Siera mērce - 1.99€", "Nav"});
         merce.setBounds(100, 200, 200, 25);
         add(merce);
+        
+        imageLabel = new JLabel();
+        imageLabel.setBounds(280, 5, 400, 400);
+        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
+        add(imageLabel);
 
         pasutijumaPoga = new JButton("Pasūtīt");
         pasutijumaPoga.setBounds(150, 240, 100, 25);
@@ -88,14 +96,28 @@ class PicasAplikacija extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == pasutijumaPoga) {
-            String vards = vardaLauks.getText();
-            String addrese = addresesLauks.getText();
-            String numurs = numuraLauks.getText();
-            boolean piegade = piegadesLauks.isSelected();
-            String izmeri = (String) izmers.getSelectedItem();
-            String piedeva = (String) piedevas.getSelectedItem();
-            String merces = (String) merce.getSelectedItem();
+            if (e.getSource() == izmers) {
+                String selectedSize = (String) izmers.getSelectedItem();
+                switch (selectedSize) {
+                    case "Mazā - 7.50€":
+                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
+                        break;
+                    case "Vidējā - 10.00€":
+                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\videjaPica.png"));
+                        break;
+                    case "Lielā - 15.99€":
+                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\LielaPica.png"));
+                        break;
+                }
+                
+            } else if (e.getSource() == pasutijumaPoga) {
+                String vards = vardaLauks.getText();
+                String addrese = addresesLauks.getText();
+                String numurs = numuraLauks.getText();
+                boolean piegade = piegadesLauks.isSelected();
+                String izmeri = (String) izmers.getSelectedItem();
+                String piedeva = (String) piedevas.getSelectedItem();
+                String merces = (String) merce.getSelectedItem();
 
             double kopejasIzmaksas = kopIzmaksas(izmeri, piedeva, merces, piegade);
 
@@ -170,6 +192,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
             ex.printStackTrace();
         }
     }
+
 }
 
 public class pica {
