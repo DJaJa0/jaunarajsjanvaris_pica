@@ -87,7 +87,6 @@ class PicasAplikacija extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == pasutijumaPoga) {
             String vards = vardaLauks.getText();
