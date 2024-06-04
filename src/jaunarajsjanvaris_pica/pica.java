@@ -1,6 +1,7 @@
 package jaunarajsjanvaris_pica;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -172,9 +173,15 @@ class PicasAplikacija extends JFrame implements ActionListener{
         izietPoga = new JButton("Iziet");
         izietPoga.setForeground(Color.WHITE);
         izietPoga.setBackground(Color.RED);
-        izietPoga.setBounds(550, 30, 100, 25);
+        izietPoga.setBounds(550, 50, 100, 25);
         izietPoga.addActionListener(this);
         add(izietPoga);
+        
+        JLabel virsraksts = new JLabel("Picas Pasūtīšana");
+        virsraksts.setBounds(330, 10, 300, 30);
+        virsraksts.setFont(new Font("Times New Roman", Font.BOLD, 40));
+        virsraksts.setForeground(Color.WHITE);
+        add(virsraksts);
 
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
