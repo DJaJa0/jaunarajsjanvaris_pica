@@ -17,3 +17,5 @@ Daniels, J-J, 2345678, false, Lielā - 15.99€, Šampinjoni - 3.99€, Nav, 19.
 , , , false, Vidējā - 10.00€, Šampinjoni - 3.99€, Tomātu - 1.99€, 15.98
 , , , false, Mazā - 7.50€, Šampinjoni - 3.99€, Tomātu - 1.99€, 13.48
 , , , false, Vidējā - 10.00€, Olivas - 3.99€, Majonēze - 1.99€, 15.98
+, , 25868228, false, Mazā - 7.50€, Šampinjoni - 3.99€, Tomātu - 1.99€, 13.48
+Daniels, Jaunarājs-Janvāris, 25868228, true, Mazā - 7.50€, Šampinjoni - 3.99€, Tomātu - 1.99€, 16.63

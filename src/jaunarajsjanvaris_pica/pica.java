@@ -112,7 +112,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
         izmersLabel.setBounds(20, 140, 80, 25);
         add(izmersLabel);
         izmers = new JComboBox<>(new String[]{"Mazā - 7.50€", "Vidējā - 10.00€", "Lielā - 15.99€"});
-        izmers.setBounds(100, 140, 200, 25);
+        izmers.setBounds(84, 140, 200, 25);
         izmers.addActionListener(this);
         add(izmers);
 
@@ -120,7 +120,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
         piedevasLabel.setBounds(20, 170, 80, 25);
         add(piedevasLabel);
         piedevas = new JComboBox<>(new String[]{"Šampinjoni - 3.99€", "Olivas - 3.99€", "Nav"});
-        piedevas.setBounds(100, 170, 200, 25);
+        piedevas.setBounds(84, 170, 200, 25);
         piedevas.addActionListener(this);
         add(piedevas);
 
@@ -129,7 +129,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
         add(merceLabel);
         merce = new JComboBox<>(new String[]{"Tomātu - 1.99€", "Majonēze - 1.99€", 
         		"Siera mērce - 1.99€", "Nav"});
-        merce.setBounds(100, 200, 200, 25);
+        merce.setBounds(84, 200, 200, 25);
         merce.addActionListener(this);
         add(merce);
         
@@ -185,7 +185,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
                         imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\olive1.png"));
                         break;
                     case "Nav":
-                        imageLabel.setIcon(null);
+                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\nav1.png"));
                         break;
                 }
                 
@@ -203,7 +203,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
                         imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\siera1.png"));
                         break;
                     case "Nav":
-                        imageLabel.setIcon(null);
+                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\nav1.png"));
                         break;
                 }
                 
@@ -216,6 +216,20 @@ class PicasAplikacija extends JFrame implements ActionListener {
                 String izmeri = (String) izmers.getSelectedItem();
                 String piedeva = (String) piedevas.getSelectedItem();
                 String merces = (String) merce.getSelectedItem();
+                
+                if (vards.isEmpty()||addrese.isEmpty()||numurs.isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Lūdzu, aizpildiet lauciņus!",
+                    		"Kļūda", JOptionPane.ERROR_MESSAGE);
+                    return; 
+                    
+                }
+                
+                     if (!telNrNeatbilst(numurs)){
+                    JOptionPane.showMessageDialog(this, "Ievadītais numurs neatbilst Latvijas standartiem!",
+                    		"Kļūda", JOptionPane.ERROR_MESSAGE);
+                   return; 
+                }
+                    
 
             double kopejasIzmaksas = kopIzmaksas(izmeri, piedeva, merces, piegade);
 
@@ -232,7 +246,21 @@ class PicasAplikacija extends JFrame implements ActionListener {
             piedevas.setSelectedIndex(0);
             merce.setSelectedIndex(0);
             imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
+       }
+    }
+    
+    private boolean telNrNeatbilst(String numurs) {
+        
+        if (numurs.length() == 8 || numurs.length() == 11){
+            if (numurs.startsWith("2")){
+                
+                return numurs.matches("[0-9]{8}");
+            }else if (numurs.startsWith("+371")) {
+                
+                return numurs.matches("\\+371[0-9]{8}");
+            }
         }
+        return false; 
     }
 
     private double kopIzmaksas(String lielums, String piedevas, String merce, boolean piegade) {
