@@ -1,110 +1,20 @@
-Vārds: d
-Adresse: jj
-TelNr.: 23456789
-Piegāde: ir
-Picas izmērs: Mazā - 7.50€
-Piedevas: Šampinjoni - 3.99€
-Mērce: Tomātu - 1.99€
-Picas daudzums: 2
-Kopā: 30.11€
-
-Vārds: d
-Adresse: q
-TelNr.: 23456789
-Piegāde: nav
-Picas izmērs: Mazā - 7.50€
-Piedevas: Šampinjoni - 3.99€
-Mērce: Tomātu - 1.99€
-Picas daudzums: 100000000
-Kopā: 1348000000.00€
-
-Vārds: d
-Adresse: d
-TelNr.: 23456789
-Piegāde: nav
-Picas izmērs: Mazā - 7.50€
-Piedevas: Šampinjoni - 3.99€
-Mērce: Tomātu - 1.99€
-Picas daudzums: 1
-Kopā: 13.48€
-
 Vārds: Daniels
 Adresse: J-J
 TelNr.: 23456789
-Piegāde: nav
-Picas izmērs: Vidējā - 10.00€
-Piedevas: Šampinjoni - 3.99€
-Mērce: Siera mērce - 1.99€
-Picas daudzums: 1
-Kopā: 15.98€
-
-Vārds: q
-Adresse: q
-TelNr.: 23456789
-Piegāde: nav
-Picas izmērs: Mazā - 7.50€
-Piedevas: Šampinjoni - 3.99€
-Mērce: Tomātu - 1.99€
-Picas daudzums: 1
-Kopā: 13.48€
-
-Vārds: d
-Adresse: j
-TelNr.: 23456789
-Piegāde: nav
-Picas izmērs: Vidējā - 10.00€
-Piedevas: Šampinjoni - 3.99€
-Mērce: Tomātu - 1.99€
-Picas daudzums: 1
-Kopā: 15.98€
-
-Vārds: d
-Adresse: j
-TelNr.: 23456789
-Piegāde: nav
-Picas izmērs: Mazā - 7.50€
-Piedevas: Šampinjoni - 3.99€
-Mērce: Tomātu - 1.99€
-Picas daudzums: 1
-Kopā: 13.48€
-
-Vārds: Daniels
-Adresse: Centrālā 1-8
-TelNr.: 23456789
 Piegāde: ir
-Picas izmērs: Vidējā - 10.00€
-Piedevas: Olivas - 3.99€
-Mērce: Majonēze - 1.99€
-Picas daudzums: 1
-Kopā: 19.13€
-
-Vārds: d
-Adresse: j
-TelNr.: 23456789
-Piegāde: ir
-Picas izmērs: Vidējā - 10.00€
-Piedevas: Šampinjoni - 3.99€
-Mērce: Tomātu - 1.99€
-Picas daudzums: 5
-Kopā: 83.05€
-
-Vārds: Daniels
-Adresse: JJ
-TelNr.: 23456789
-Piegāde: ir
-Picas izmērs: Mazā - 7.50€
+Picas izmērs: Lielā - 15.99€
 Piedevas: Nav
 Mērce: Nav
 Picas daudzums: 2
-Kopā: 18.15€
+Kopā: 35.13€
 
-Vārds: d
-Adresse: jj
+Vārds: Dan
+Adresse: Cent
 TelNr.: 23456789
-Piegāde: ir
+Piegāde: saņem veikalā
 Picas izmērs: Mazā - 7.50€
-Piedevas: Nav
-Mērce: Nav
-Picas daudzums: 10
-Kopā: 78.15€
+Piedevas: Šampinjoni - 3.99€
+Mērce: Tomātu - 1.99€
+Picas daudzums: 1
+Kopā: 13.48€
 

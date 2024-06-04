@@ -87,7 +87,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
         add(numuraLauks);
         
         numuraLauks.addFocusListener(new FocusListener(){
-            public void focusGained(FocusEvent e) {
+            public void focusGained(FocusEvent e){
                 skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
             }
             public void focusLost(FocusEvent e){
@@ -215,7 +215,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
                         break;
                 }
                 
-            } else if (e.getSource() == piedevas){
+            }else if (e.getSource() == piedevas){
             	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
                 String izveletasPiedevas = (String) piedevas.getSelectedItem();
                 switch (izveletasPiedevas){
@@ -230,7 +230,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
                         break;
                 }
                 
-            } else if (e.getSource() == merce){
+            }else if (e.getSource() == merce){
             	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
                 String izveletaMerce = (String) merce.getSelectedItem();
                 switch (izveletaMerce){
@@ -248,7 +248,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
                         break;
                 }
                 
-            } else if (e.getSource() == pasutijumaPoga){
+            }else if (e.getSource() == pasutijumaPoga){
             	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
                 String vards = vardaLauks.getText();
                 String addrese = addresesLauks.getText();
@@ -258,20 +258,18 @@ class PicasAplikacija extends JFrame implements ActionListener{
                 String piedeva = (String) piedevas.getSelectedItem();
                 String merces = (String) merce.getSelectedItem();
                 
-                if (vards.isEmpty()||addrese.isEmpty()||numurs.isEmpty()){
+                if(vards.isEmpty()||addrese.isEmpty()||numurs.isEmpty()){
                     JOptionPane.showMessageDialog(this, "Lūdzu, aizpildiet lauciņus!",
                     		"Kļūda", JOptionPane.ERROR_MESSAGE);
                     return; 
                 }
                 
-                     if (!telNrNeatbilst(numurs)){
-                    JOptionPane.showMessageDialog(this, "Ievadītais numurs neatbilst Latvijas standartiem!",
+                 	if(!telNrNeatbilst(numurs)){
+                 		JOptionPane.showMessageDialog(this, "Ievadītais numurs neatbilst Latvijas standartiem!",
                     		"Kļūda", JOptionPane.ERROR_MESSAGE);
-                   return; 
-                   
+                   return;                  
                 }
-                  
-                     
+                                      
             int picasDaudzums = Integer.parseInt(picasDaudzumaLauks.getText());
             double kopejasIzmaksas = kopIzmaksas(izmeri, piedeva, merces, piegade, picasDaudzums);
 
@@ -392,13 +390,13 @@ class PicasAplikacija extends JFrame implements ActionListener{
             w.write("Vārds: "+vards+"\n");
             w.write("Adresse: "+addrese+"\n");
             w.write("TelNr.: "+numurs+"\n");
-            w.write("Piegāde: "+(piegade?"ir":"nav")+"\n");
+            w.write("Piegāde: "+(piegade?"ir":"saņem veikalā")+"\n");
             w.write("Picas izmērs: "+izmeri+"\n");
             w.write("Piedevas: "+piedeva+"\n");
             w.write("Mērce: "+merce+"\n");
             w.write("Picas daudzums: "+picasDaudzums+"\n");
             w.write("Kopā: "+String.format("%.2f", kopejasIzmaksas)+"€\n\n");
-        }catch (IOException ex) {
+        }catch (IOException ex){
             ex.printStackTrace();
         }
     }
