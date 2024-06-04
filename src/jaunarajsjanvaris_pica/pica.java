@@ -27,7 +27,7 @@ import javax.swing.SwingUtilities;
 class PicasAplikacija extends JFrame implements ActionListener{
     
 	private static final long serialVersionUID = 1L;
-	private JTextField vardaLauks, addresesLauks, numuraLauks;
+	private JTextField vardaLauks, addresesLauks, numuraLauks, picasDaudzumaLauks;
     private JCheckBox piegadesLauks;
     private JComboBox<String> izmers, piedevas, merce;
     private JButton pasutijumaPoga;
@@ -93,6 +93,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
                 
             }
         });
+        
 
         piegadesLauks = new JCheckBox("Piegāde 3.15 €");
         piegadesLauks.setBounds(20, 110, 110, 25);
@@ -144,6 +145,15 @@ class PicasAplikacija extends JFrame implements ActionListener{
         pasutijumaPoga.setBounds(150, 240, 100, 25);
         pasutijumaPoga.addActionListener(this);
         add(pasutijumaPoga);
+        
+        JLabel picasDaudzumaLabel = new JLabel("Picas daudzums:");
+        picasDaudzumaLabel.setBounds(20, 270, 120, 25);
+        add(picasDaudzumaLabel);
+        
+        picasDaudzumaLauks = new JTextField();
+        picasDaudzumaLauks.setBounds(150, 270, 100, 25);
+        picasDaudzumaLauks.setText("1");
+        add(picasDaudzumaLauks);
 
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -231,11 +241,12 @@ class PicasAplikacija extends JFrame implements ActionListener{
                     		"Kļūda", JOptionPane.ERROR_MESSAGE);
                    return; 
                 }
-                    
+                     
+            int picasDaudzums = Integer.parseInt(picasDaudzumaLauks.getText());
+            double kopejasIzmaksas = kopIzmaksas(izmeri, piedeva, merces, piegade, picasDaudzums);
 
-            double kopejasIzmaksas = kopIzmaksas(izmeri, piedeva, merces, piegade);
-
-            ierakstitFaila(vards, addrese, numurs, piegade, izmeri, piedeva, merces, kopejasIzmaksas);
+            ierakstitFaila(vards, addrese, numurs, piegade, izmeri, piedeva, merces, 
+            		picasDaudzums, kopejasIzmaksas);
 
             JOptionPane.showMessageDialog(this, "Jūsu pasūtījums ir noformēts.\nKopējā cena: €"
                     + String.format("%.2f", kopejasIzmaksas));
@@ -265,12 +276,13 @@ class PicasAplikacija extends JFrame implements ActionListener{
         return false; 
     }
 
-    private double kopIzmaksas(String lielums, String piedevas, String merce, boolean piegade){
+    private double kopIzmaksas(String lielums, String piedevas, String merce, boolean piegade, 
+    		int picasDaudzums){
         double izmeraCena = lielumaCena(lielums);
         double piedevuCena = piedevuCena(piedevas);
         double mercesCena = mercesCena(merce);
 
-        double kopejasIzmaksas = izmeraCena + piedevuCena + mercesCena;
+        double kopejasIzmaksas = (izmeraCena + piedevuCena + mercesCena)*picasDaudzums;
 
         if (piegade)
             kopejasIzmaksas += 3.15;
@@ -312,7 +324,8 @@ class PicasAplikacija extends JFrame implements ActionListener{
     }
 
     private void ierakstitFaila(String vards, String addrese, String numurs, boolean piegade,
-                                String izmeri, String piedeva, String merce, double kopejasIzmaksas){
+                                String izmeri, String piedeva, String merce, 
+                                int picasDaudzums, double kopejasIzmaksas){
     	try (FileWriter w = new FileWriter("pasutijums.txt", true)){
             w.write("Vārds: "+vards+"\n");
             w.write("Adresse: "+addrese+"\n");
@@ -321,6 +334,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
             w.write("Picas izmērs: "+izmeri+"\n");
             w.write("Piedevas: "+piedeva+"\n");
             w.write("Mērce: "+merce+"\n");
+            w.write("Picas daudzums: "+picasDaudzums+"\n");
             w.write("Kopā: "+String.format("%.2f", kopejasIzmaksas)+"€\n\n");
         }catch (IOException ex) {
             ex.printStackTrace();

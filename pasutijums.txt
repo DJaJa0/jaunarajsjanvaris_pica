@@ -1,36 +1,20 @@
-Vārds: Daniels
-Adresse: Centrālā iela 1-8
+Vārds: d
+Adresse: jj
 TelNr.: 23456789
-Piegāde: true
-Picas izmērs: Mazā - 7.50€
-Piedevas: Šampinjoni - 3.99€
-Mērce: Tomātu - 1.99€
-Kopā: 16.63
-
-Vārds: Markuss
-Adresse: Slimnīcas iela 1-8
-TelNr.: 23456789
-Piegāde: true
-Picas izmērs: Vidējā - 10.00€
-Piedevas: Olivas - 3.99€
-Mērce: Majonēze - 1.99€
-Kopā: 19.13
-
-Vārds: a
-Adresse: aa
-TelNr.: 23456789
-Piegāde: true
-Picas izmērs: Mazā - 7.50€
-Piedevas: Šampinjoni - 3.99€
-Mērce: Tomātu - 1.99€
-Kopā: 16.63€
-
-Vārds: Es
-Adresse: Testēju
-TelNr.: 22345678
 Piegāde: ir
 Picas izmērs: Mazā - 7.50€
 Piedevas: Šampinjoni - 3.99€
 Mērce: Tomātu - 1.99€
-Kopā: 16.63€
+Picas daudzums: 2
+Kopā: 30.11€
+
+Vārds: d
+Adresse: q
+TelNr.: 23456789
+Piegāde: nav
+Picas izmērs: Mazā - 7.50€
+Piedevas: Šampinjoni - 3.99€
+Mērce: Tomātu - 1.99€
+Picas daudzums: 100000000
+Kopā: 1348000000.00€
 
