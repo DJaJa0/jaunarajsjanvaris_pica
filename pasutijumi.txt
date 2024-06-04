@@ -1,0 +1,1 @@
+Vārds: Daniels, Adresse: Centrālā 1-8, TelNr.: 23456789, Piegāde: true, Picas izmērs: Lielā - 15.99€, Piedevas: Olivas - 3.99€, Mērce: Majonēze - 1.99€, Kopā: 25.12

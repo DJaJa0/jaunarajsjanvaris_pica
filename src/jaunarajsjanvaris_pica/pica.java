@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-class PicasAplikacija extends JFrame implements ActionListener {
+class PicasAplikacija extends JFrame implements ActionListener{
     
 	private static final long serialVersionUID = 1L;
 	private JTextField vardaLauks, addresesLauks, numuraLauks;
@@ -39,7 +39,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
     private static final double piedevasCena = 3.99;
     private static final double mercesCena = 1.99;
 
-    public PicasAplikacija() {
+    public PicasAplikacija(){
         setTitle("Picas Pasūtīšana");
         setSize(700, 380);
         setLayout(null);
@@ -50,14 +50,14 @@ class PicasAplikacija extends JFrame implements ActionListener {
         vardaLabel.setBounds(20, 20, 80, 25);
         add(vardaLabel);
         vardaLauks = new JTextField();
-        vardaLauks.setBounds(100, 20, 200, 25);
+        vardaLauks.setBounds(84, 20, 200, 25);
         add(vardaLauks);
         
-        vardaLauks.addFocusListener(new FocusListener() {
-            public void focusGained(FocusEvent e) {
+        vardaLauks.addFocusListener(new FocusListener(){
+            public void focusGained(FocusEvent e){
                 skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
             }
-            public void focusLost(FocusEvent e) {
+            public void focusLost(FocusEvent e){
                 
             }
         });
@@ -66,14 +66,14 @@ class PicasAplikacija extends JFrame implements ActionListener {
         addresesLabel.setBounds(20, 50, 80, 25);
         add(addresesLabel);
         addresesLauks = new JTextField();
-        addresesLauks.setBounds(100, 50, 200, 25);
+        addresesLauks.setBounds(84, 50, 200, 25);
         add(addresesLauks);
         
-        addresesLauks.addFocusListener(new FocusListener() {
+        addresesLauks.addFocusListener(new FocusListener(){
             public void focusGained(FocusEvent e) {
                 skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
             }
-            public void focusLost(FocusEvent e) {
+            public void focusLost(FocusEvent e){
                 
             }
         });
@@ -82,27 +82,29 @@ class PicasAplikacija extends JFrame implements ActionListener {
         telNrLabel.setBounds(20, 80, 80, 25);
         add(telNrLabel);
         numuraLauks = new JTextField();
-        numuraLauks.setBounds(100, 80, 200, 25);
+        numuraLauks.setBounds(84, 80, 200, 25);
         add(numuraLauks);
         
-        numuraLauks.addFocusListener(new FocusListener() {
+        numuraLauks.addFocusListener(new FocusListener(){
             public void focusGained(FocusEvent e) {
                 skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
             }
-            public void focusLost(FocusEvent e) {
+            public void focusLost(FocusEvent e){
                 
             }
         });
 
-        piegadesLauks = new JCheckBox("Piegāde");
-        piegadesLauks.setBounds(20, 110, 100, 25);
+        piegadesLauks = new JCheckBox("Piegāde 3.15 €");
+        piegadesLauks.setBounds(20, 110, 110, 25);
+        piegadesLauks.setOpaque(true); 
+        piegadesLauks.setBackground(new Color(255, 140, 80));
         add(piegadesLauks);
         
-        piegadesLauks.addItemListener(new ItemListener() {
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
+        piegadesLauks.addItemListener(new ItemListener(){
+            public void itemStateChanged(ItemEvent e){
+                if (e.getStateChange() == ItemEvent.SELECTED){
                     skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
-                } else if (e.getStateChange() == ItemEvent.DESELECTED) {
+                }else if (e.getStateChange() == ItemEvent.DESELECTED) {
                     skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
                 }
             }
@@ -147,22 +149,22 @@ class PicasAplikacija extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
-    private void skana(String audioFails) {
-        try {
+    private void skana(String audioFails){
+        try{
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Paths.get(audioFails).toFile());
             Clip audio = AudioSystem.getClip();
             audio.open(audioInputStream);
             audio.start();
-        } catch (Exception ex) {
+        }catch (Exception ex){
             ex.printStackTrace();
         }
     }
 
-    public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == izmers) {
+    public void actionPerformed(ActionEvent e){
+            if (e.getSource() == izmers){
             	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
-                String selectedSize = (String) izmers.getSelectedItem();
-                switch (selectedSize) {
+                String izveletaisLielums = (String) izmers.getSelectedItem();
+                switch (izveletaisLielums){
                     case "Mazā - 7.50€":
                         imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
                         break;
@@ -174,10 +176,10 @@ class PicasAplikacija extends JFrame implements ActionListener {
                         break;
                 }
                 
-            } else if (e.getSource() == piedevas) {
+            } else if (e.getSource() == piedevas){
             	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
-                String selectedPiedevas = (String) piedevas.getSelectedItem();
-                switch (selectedPiedevas) {
+                String izveletasPiedevas = (String) piedevas.getSelectedItem();
+                switch (izveletasPiedevas){
                     case "Šampinjoni - 3.99€":
                         imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\senes1.png"));
                         break;
@@ -189,10 +191,10 @@ class PicasAplikacija extends JFrame implements ActionListener {
                         break;
                 }
                 
-            } else if (e.getSource() == merce) {
+            } else if (e.getSource() == merce){
             	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
-                String selectedMerce = (String) merce.getSelectedItem();
-                switch (selectedMerce) {
+                String izveletaMerce = (String) merce.getSelectedItem();
+                switch (izveletaMerce){
                     case "Tomātu - 1.99€":
                         imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\tomato1.png"));
                         break;
@@ -207,7 +209,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
                         break;
                 }
                 
-            } else if (e.getSource() == pasutijumaPoga) {
+            } else if (e.getSource() == pasutijumaPoga){
             	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
                 String vards = vardaLauks.getText();
                 String addrese = addresesLauks.getText();
@@ -249,7 +251,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
        }
     }
     
-    private boolean telNrNeatbilst(String numurs) {
+    private boolean telNrNeatbilst(String numurs){
         
         if (numurs.length() == 8 || numurs.length() == 11){
             if (numurs.startsWith("2")){
@@ -263,7 +265,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
         return false; 
     }
 
-    private double kopIzmaksas(String lielums, String piedevas, String merce, boolean piegade) {
+    private double kopIzmaksas(String lielums, String piedevas, String merce, boolean piegade){
         double izmeraCena = lielumaCena(lielums);
         double piedevuCena = piedevuCena(piedevas);
         double mercesCena = mercesCena(merce);
@@ -275,8 +277,8 @@ class PicasAplikacija extends JFrame implements ActionListener {
         return kopejasIzmaksas;
     }
 
-    private double lielumaCena(String lielums) {
-        switch (lielums) {
+    private double lielumaCena(String lielums){
+        switch (lielums){
             case "Mazā - 7.50€":
                 return mazaPica;
             case "Vidējā - 10.00€":
@@ -288,8 +290,8 @@ class PicasAplikacija extends JFrame implements ActionListener {
         }
     }
 
-    private double piedevuCena(String piedevas) {
-        switch (piedevas) {
+    private double piedevuCena(String piedevas){
+        switch (piedevas){
             case "Šampinjoni - 3.99€":
             case "Olivas - 3.99€":
                 return piedevasCena;
@@ -298,7 +300,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
         }
     }
 
-    private double mercesCena(String merce) {
+    private double mercesCena(String merce){
         switch (merce) {
             case "Tomātu - 1.99€":
             case "Majonēze - 1.99€":
@@ -310,22 +312,27 @@ class PicasAplikacija extends JFrame implements ActionListener {
     }
 
     private void ierakstitFaila(String vards, String addrese, String numurs, boolean piegade,
-                                String izmeri, String piedeva, String merce, double kopejasIzmaksas) {
-        try (FileWriter w = new FileWriter("pasutijums.txt", true)) {
-            w.write(vards+", "+addrese+", "+numurs+", "+piegade+", "+izmeri+
-                    ", "+piedeva+", "+merce+", "+kopejasIzmaksas+"\n");
-        } catch (IOException ex) {
+                                String izmeri, String piedeva, String merce, double kopejasIzmaksas){
+    	try (FileWriter w = new FileWriter("pasutijums.txt", true)){
+            w.write("Vārds: "+vards+"\n");
+            w.write("Adresse: "+addrese+"\n");
+            w.write("TelNr.: "+numurs+"\n");
+            w.write("Piegāde: "+(piegade?"ir":"nav")+"\n");
+            w.write("Picas izmērs: "+izmeri+"\n");
+            w.write("Piedevas: "+piedeva+"\n");
+            w.write("Mērce: "+merce+"\n");
+            w.write("Kopā: "+String.format("%.2f", kopejasIzmaksas)+"€\n\n");
+        }catch (IOException ex) {
             ex.printStackTrace();
         }
     }
+ }
 
-}
-
-public class pica {
-    public static void main(String[] args) {
+public class pica{
+    public static void main(String[] args){
         SwingUtilities.invokeLater(() -> {
             PicasAplikacija aplikacija = new PicasAplikacija();
             aplikacija.setVisible(true);
         });
     }
-}
+ }

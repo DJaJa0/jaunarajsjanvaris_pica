@@ -1,21 +1,36 @@
-<<<<<<< HEAD
-d, jj, 23456788, true, Vidējā - 10.00€, Olivas - 3.99€, Baltā - 1.99€, 19.13
-dd, j, 23456789, false, Mazā - 7.50€, Siera mērce - 1.50€, Nav, 11.49
-Daniels, J-J, 2345678, false, Lielā - 15.99€, Šampinjoni - 3.99€, Nav, 19.98
-, , , false, Mazā - 7.50€, Šampinjoni - 3.99€, Tomātu - 1.99€, 13.48
-=======
-, , , false, Vidējā - 10.00€, Šampinjoni - 3.99€, Tomātu - 1.99€, 15.98
-, , , false, Mazā - 7.50€, Šampinjoni - 3.99€, Tomātu - 1.99€, 13.48
-, , , false, Mazā - 7.50€, Šampinjoni - 3.99€, Tomātu - 1.99€, 13.48
-, , , false, Lielā - 15.99€, Šampinjoni - 3.99€, Tomātu - 1.99€, 21.97
->>>>>>> jauns_zars
-, , , false, Mazā - 7.50€, Nav, Nav, 7.5
-, , , true, Mazā - 7.50€, Nav, Nav, 10.65
-, , , false, Vidējā - 10.00€, Šampinjoni - 3.99€, Tomātu - 1.99€, 15.98
-, , , false, Vidējā - 10.00€, Olivas - 3.99€, Majonēze - 1.99€, 15.98
-, fffff, , false, Mazā - 7.50€, Šampinjoni - 3.99€, Tomātu - 1.99€, 13.48
-, , , false, Vidējā - 10.00€, Šampinjoni - 3.99€, Tomātu - 1.99€, 15.98
-, , , false, Mazā - 7.50€, Šampinjoni - 3.99€, Tomātu - 1.99€, 13.48
-, , , false, Vidējā - 10.00€, Olivas - 3.99€, Majonēze - 1.99€, 15.98
-, , 25868228, false, Mazā - 7.50€, Šampinjoni - 3.99€, Tomātu - 1.99€, 13.48
-Daniels, Jaunarājs-Janvāris, 25868228, true, Mazā - 7.50€, Šampinjoni - 3.99€, Tomātu - 1.99€, 16.63
+Vārds: Daniels
+Adresse: Centrālā iela 1-8
+TelNr.: 23456789
+Piegāde: true
+Picas izmērs: Mazā - 7.50€
+Piedevas: Šampinjoni - 3.99€
+Mērce: Tomātu - 1.99€
+Kopā: 16.63
+
+Vārds: Markuss
+Adresse: Slimnīcas iela 1-8
+TelNr.: 23456789
+Piegāde: true
+Picas izmērs: Vidējā - 10.00€
+Piedevas: Olivas - 3.99€
+Mērce: Majonēze - 1.99€
+Kopā: 19.13
+
+Vārds: a
+Adresse: aa
+TelNr.: 23456789
+Piegāde: true
+Picas izmērs: Mazā - 7.50€
+Piedevas: Šampinjoni - 3.99€
+Mērce: Tomātu - 1.99€
+Kopā: 16.63€
+
+Vārds: Es
+Adresse: Testēju
+TelNr.: 22345678
+Piegāde: ir
+Picas izmērs: Mazā - 7.50€
+Piedevas: Šampinjoni - 3.99€
+Mērce: Tomātu - 1.99€
+Kopā: 16.63€
+
