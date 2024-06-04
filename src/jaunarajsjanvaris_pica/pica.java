@@ -178,22 +178,8 @@ class PicasAplikacija extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e){
-    	
-    	if (e.getSource() == pasutijumaPoga) {
-            // Pārbaude, vai lauki ir aizpildīti
-            String vards = vardaLauks.getText();
-            String addrese = addresesLauks.getText();
-            String numurs = numuraLauks.getText();
-            boolean piegade = piegadesLauks.isSelected();
-            String izmeri = (String) izmers.getSelectedItem();
-            String piedeva = (String) piedevas.getSelectedItem();
-            String merces = (String) merce.getSelectedItem();
-
-            if (vards.isEmpty() || addrese.isEmpty() || numurs.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Lūdzu, aizpildiet lauciņus!", "Kļūda",
-                        JOptionPane.ERROR_MESSAGE);
     
-                else if (e.getSource() == izmers || e.getSource() == piedevas || e.getSource() == merce || e.getSource() == piegadesLauks || e.getSource() == pasutijumaPoga) {
+    	if (e.getSource() == izmers || e.getSource() == piedevas || e.getSource() == merce || e.getSource() == piegadesLauks || e.getSource() == pasutijumaPoga) {
             int picasDaudzums = Integer.parseInt(picasDaudzumaLauks.getText());
             double kopejasIzmaksas = kopIzmaksas((String) izmers.getSelectedItem(), 
                 (String) piedevas.getSelectedItem(), (String) merce.getSelectedItem(),
@@ -250,7 +236,22 @@ class PicasAplikacija extends JFrame implements ActionListener{
                         break;
                 }
                 
-            } else if 
+            } else if (e.getSource() == pasutijumaPoga){
+            	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
+                String vards = vardaLauks.getText();
+                String addrese = addresesLauks.getText();
+                String numurs = numuraLauks.getText();
+                boolean piegade = piegadesLauks.isSelected();
+                String izmeri = (String) izmers.getSelectedItem();
+                String piedeva = (String) piedevas.getSelectedItem();
+                String merces = (String) merce.getSelectedItem();
+                
+                if (vards.isEmpty()||addrese.isEmpty()||numurs.isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Lūdzu, aizpildiet lauciņus!",
+                    		"Kļūda", JOptionPane.ERROR_MESSAGE);
+                    return; 
+                    
+                }
                 
                      if (!telNrNeatbilst(numurs)){
                     JOptionPane.showMessageDialog(this, "Ievadītais numurs neatbilst Latvijas standartiem!",
