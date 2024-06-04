@@ -18,3 +18,53 @@ Mērce: Tomātu - 1.99€
 Picas daudzums: 100000000
 Kopā: 1348000000.00€
 
+Vārds: d
+Adresse: d
+TelNr.: 23456789
+Piegāde: nav
+Picas izmērs: Mazā - 7.50€
+Piedevas: Šampinjoni - 3.99€
+Mērce: Tomātu - 1.99€
+Picas daudzums: 1
+Kopā: 13.48€
+
+Vārds: Daniels
+Adresse: J-J
+TelNr.: 23456789
+Piegāde: nav
+Picas izmērs: Vidējā - 10.00€
+Piedevas: Šampinjoni - 3.99€
+Mērce: Siera mērce - 1.99€
+Picas daudzums: 1
+Kopā: 15.98€
+
+Vārds: q
+Adresse: q
+TelNr.: 23456789
+Piegāde: nav
+Picas izmērs: Mazā - 7.50€
+Piedevas: Šampinjoni - 3.99€
+Mērce: Tomātu - 1.99€
+Picas daudzums: 1
+Kopā: 13.48€
+
+Vārds: d
+Adresse: j
+TelNr.: 23456789
+Piegāde: nav
+Picas izmērs: Vidējā - 10.00€
+Piedevas: Šampinjoni - 3.99€
+Mērce: Tomātu - 1.99€
+Picas daudzums: 1
+Kopā: 15.98€
+
+Vārds: d
+Adresse: j
+TelNr.: 23456789
+Piegāde: nav
+Picas izmērs: Mazā - 7.50€
+Piedevas: Šampinjoni - 3.99€
+Mērce: Tomātu - 1.99€
+Picas daudzums: 1
+Kopā: 13.48€
+

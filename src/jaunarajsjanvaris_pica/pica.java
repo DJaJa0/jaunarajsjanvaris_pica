@@ -30,8 +30,8 @@ class PicasAplikacija extends JFrame implements ActionListener{
 	private JTextField vardaLauks, addresesLauks, numuraLauks, picasDaudzumaLauks;
     private JCheckBox piegadesLauks;
     private JComboBox<String> izmers, piedevas, merce;
-    private JButton pasutijumaPoga;
-    private JLabel imageLabel;
+    private JButton pasutijumaPoga, okPoga, clearPoga;
+    private JLabel imageLabel, kopejaCenaLabel;
 
     private static final double mazaPica = 7.50;
     private static final double videjaPica = 10.00;
@@ -41,7 +41,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
 
     public PicasAplikacija(){
         setTitle("Picas Pasūtīšana");
-        setSize(700, 380);
+        setSize(700, 420);
         setLayout(null);
         
         getContentPane().setBackground(new Color(255, 140, 80));
@@ -142,7 +142,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
         add(imageLabel);
 
         pasutijumaPoga = new JButton("Pasūtīt");
-        pasutijumaPoga.setBounds(150, 240, 100, 25);
+        pasutijumaPoga.setBounds(130, 240, 100, 25);
         pasutijumaPoga.addActionListener(this);
         add(pasutijumaPoga);
         
@@ -151,9 +151,23 @@ class PicasAplikacija extends JFrame implements ActionListener{
         add(picasDaudzumaLabel);
         
         picasDaudzumaLauks = new JTextField();
-        picasDaudzumaLauks.setBounds(150, 270, 100, 25);
+        picasDaudzumaLauks.setBounds(130, 270, 100, 25);
         picasDaudzumaLauks.setText("1");
         add(picasDaudzumaLauks);
+        
+        okPoga = new JButton("OK");
+        okPoga.setBounds(20, 300, 100, 25);
+        okPoga.addActionListener(this);
+        add(okPoga);
+
+        clearPoga = new JButton("Notīrīt");
+        clearPoga.setBounds(130, 300, 100, 25);
+        clearPoga.addActionListener(this);
+        add(clearPoga);
+
+        kopejaCenaLabel = new JLabel("Kopējā cena: ");
+        kopejaCenaLabel.setBounds(20, 330, 200, 25);
+        add(kopejaCenaLabel);
 
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -171,6 +185,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e){
+    	
             if (e.getSource() == izmers){
             	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
                 String izveletaisLielums = (String) izmers.getSelectedItem();
@@ -233,14 +248,15 @@ class PicasAplikacija extends JFrame implements ActionListener{
                     JOptionPane.showMessageDialog(this, "Lūdzu, aizpildiet lauciņus!",
                     		"Kļūda", JOptionPane.ERROR_MESSAGE);
                     return; 
-                    
                 }
                 
                      if (!telNrNeatbilst(numurs)){
                     JOptionPane.showMessageDialog(this, "Ievadītais numurs neatbilst Latvijas standartiem!",
                     		"Kļūda", JOptionPane.ERROR_MESSAGE);
                    return; 
+                   
                 }
+                  
                      
             int picasDaudzums = Integer.parseInt(picasDaudzumaLauks.getText());
             double kopejasIzmaksas = kopIzmaksas(izmeri, piedeva, merces, piegade, picasDaudzums);
@@ -259,6 +275,22 @@ class PicasAplikacija extends JFrame implements ActionListener{
             piedevas.setSelectedIndex(0);
             merce.setSelectedIndex(0);
             imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
+            
+            } else if (e.getSource() == okPoga) {
+                skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
+                double kopa = kopejaCena();
+                kopejaCenaLabel.setText("Kopējā cena: " + String.format("%.2f €", kopa));
+            } else if (e.getSource() == clearPoga) {
+                vardaLauks.setText("");
+                addresesLauks.setText("");
+                numuraLauks.setText("");
+                piegadesLauks.setSelected(false);
+                izmers.setSelectedIndex(0);
+                piedevas.setSelectedIndex(0);
+                merce.setSelectedIndex(0);
+                picasDaudzumaLauks.setText("1");
+                kopejaCenaLabel.setText("Kopējā cena: ");
+                imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
        }
     }
     
@@ -282,7 +314,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
         double piedevuCena = piedevuCena(piedevas);
         double mercesCena = mercesCena(merce);
 
-        double kopejasIzmaksas = (izmeraCena + piedevuCena + mercesCena)*picasDaudzums;
+        double kopejasIzmaksas = (izmeraCena+piedevuCena+mercesCena)*picasDaudzums;
 
         if (piegade)
             kopejasIzmaksas += 3.15;
@@ -339,6 +371,32 @@ class PicasAplikacija extends JFrame implements ActionListener{
         }catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+    
+    private double kopejaCena() {
+        double kopa = 0.0;
+
+        String izmersIzvele = (String) izmers.getSelectedItem();
+        if (izmersIzvele.equals("Mazā - 7.50€")) {
+        	kopa += mazaPica;
+        } else if (izmersIzvele.equals("Vidējā - 10.00€")) {
+        	kopa += videjaPica;
+        } else if (izmersIzvele.equals("Lielā - 15.99€")) {
+        	kopa += lielaPica;
+        }
+        if (!piedevas.getSelectedItem().equals("Nav")) {
+        	kopa += piedevasCena;
+        }
+        if (!merce.getSelectedItem().equals("Nav")) {
+        	kopa += mercesCena;
+        }
+        if (piegadesLauks.isSelected()) {
+        	kopa += 3.15;
+        }
+        int daudzums = Integer.parseInt(picasDaudzumaLauks.getText());
+        kopa *= daudzums;
+
+        return kopa;
     }
  }
 
