@@ -3,9 +3,17 @@ package jaunarajsjanvaris_pica;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Paths;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -44,6 +52,15 @@ class PicasAplikacija extends JFrame implements ActionListener {
         vardaLauks = new JTextField();
         vardaLauks.setBounds(100, 20, 200, 25);
         add(vardaLauks);
+        
+        vardaLauks.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
+            }
+            public void focusLost(FocusEvent e) {
+                
+            }
+        });
 
         JLabel addresesLabel = new JLabel("Adrese:");
         addresesLabel.setBounds(20, 50, 80, 25);
@@ -51,6 +68,15 @@ class PicasAplikacija extends JFrame implements ActionListener {
         addresesLauks = new JTextField();
         addresesLauks.setBounds(100, 50, 200, 25);
         add(addresesLauks);
+        
+        addresesLauks.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
+            }
+            public void focusLost(FocusEvent e) {
+                
+            }
+        });
 
         JLabel telNrLabel = new JLabel("Tālrunis:");
         telNrLabel.setBounds(20, 80, 80, 25);
@@ -58,10 +84,29 @@ class PicasAplikacija extends JFrame implements ActionListener {
         numuraLauks = new JTextField();
         numuraLauks.setBounds(100, 80, 200, 25);
         add(numuraLauks);
+        
+        numuraLauks.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
+            }
+            public void focusLost(FocusEvent e) {
+                
+            }
+        });
 
         piegadesLauks = new JCheckBox("Piegāde");
         piegadesLauks.setBounds(20, 110, 100, 25);
         add(piegadesLauks);
+        
+        piegadesLauks.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
+                } else if (e.getStateChange() == ItemEvent.DESELECTED) {
+                    skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
+                }
+            }
+        });
 
         JLabel izmersLabel = new JLabel("Izmērs:");
         izmersLabel.setBounds(20, 140, 80, 25);
@@ -101,9 +146,21 @@ class PicasAplikacija extends JFrame implements ActionListener {
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    
+    private void skana(String audioFails) {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Paths.get(audioFails).toFile());
+            Clip audio = AudioSystem.getClip();
+            audio.open(audioInputStream);
+            audio.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
     public void actionPerformed(ActionEvent e) {
             if (e.getSource() == izmers) {
+            	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
                 String selectedSize = (String) izmers.getSelectedItem();
                 switch (selectedSize) {
                     case "Mazā - 7.50€":
@@ -118,6 +175,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
                 }
                 
             } else if (e.getSource() == piedevas) {
+            	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
                 String selectedPiedevas = (String) piedevas.getSelectedItem();
                 switch (selectedPiedevas) {
                     case "Šampinjoni - 3.99€":
@@ -132,6 +190,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
                 }
                 
             } else if (e.getSource() == merce) {
+            	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
                 String selectedMerce = (String) merce.getSelectedItem();
                 switch (selectedMerce) {
                     case "Tomātu - 1.99€":
@@ -149,6 +208,7 @@ class PicasAplikacija extends JFrame implements ActionListener {
                 }
                 
             } else if (e.getSource() == pasutijumaPoga) {
+            	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
                 String vards = vardaLauks.getText();
                 String addrese = addresesLauks.getText();
                 String numurs = numuraLauks.getText();
