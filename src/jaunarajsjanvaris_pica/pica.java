@@ -30,7 +30,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
 	private JTextField vardaLauks, addresesLauks, numuraLauks, picasDaudzumaLauks;
     private JCheckBox piegadesLauks;
     private JComboBox<String> izmers, piedevas, merce;
-    private JButton pasutijumaPoga, okPoga, clearPoga;
+    private JButton pasutijumaPoga, okPoga, clearPoga, izietPoga;
     private JLabel imageLabel, kopejaCenaLabel;
 
     private static final double mazaPica = 7.50;
@@ -168,6 +168,13 @@ class PicasAplikacija extends JFrame implements ActionListener{
         kopejaCenaLabel = new JLabel("Kopējā cena: ");
         kopejaCenaLabel.setBounds(20, 330, 200, 25);
         add(kopejaCenaLabel);
+        
+        izietPoga = new JButton("Iziet");
+        izietPoga.setForeground(Color.WHITE);
+        izietPoga.setBackground(Color.RED);
+        izietPoga.setBounds(550, 30, 100, 25);
+        izietPoga.addActionListener(this);
+        add(izietPoga);
 
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -274,13 +281,23 @@ class PicasAplikacija extends JFrame implements ActionListener{
             izmers.setSelectedIndex(0);
             piedevas.setSelectedIndex(0);
             merce.setSelectedIndex(0);
+            picasDaudzumaLauks.setText("1");
+            kopejaCenaLabel.setText("Kopējā cena: ");
             imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
             
-            } else if (e.getSource() == okPoga) {
+            }else if (e.getSource() == okPoga) {
                 skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
-                double kopa = kopejaCena();
-                kopejaCenaLabel.setText("Kopējā cena: " + String.format("%.2f €", kopa));
-            } else if (e.getSource() == clearPoga) {
+                double kopa = kopIzmaksas(
+                        (String) izmers.getSelectedItem(), 
+                        (String) piedevas.getSelectedItem(), 
+                        (String) merce.getSelectedItem(), 
+                        piegadesLauks.isSelected(), 
+                        Integer.parseInt(picasDaudzumaLauks.getText())
+                    );
+                    kopejaCenaLabel.setText("Kopējā cena: " + String.format("%.2f €", kopa));
+                
+
+            }else if (e.getSource() == clearPoga){
                 vardaLauks.setText("");
                 addresesLauks.setText("");
                 numuraLauks.setText("");
@@ -291,6 +308,12 @@ class PicasAplikacija extends JFrame implements ActionListener{
                 picasDaudzumaLauks.setText("1");
                 kopejaCenaLabel.setText("Kopējā cena: ");
                 imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
+                
+                
+            }else if(e.getSource() == izietPoga){
+                skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\exit.wav");
+            	JOptionPane.showMessageDialog(null, "Paldies, ka izmantojat mūsu picēriju!");
+            	System.exit(0);
        }
     }
     
@@ -371,32 +394,6 @@ class PicasAplikacija extends JFrame implements ActionListener{
         }catch (IOException ex) {
             ex.printStackTrace();
         }
-    }
-    
-    private double kopejaCena() {
-        double kopa = 0.0;
-
-        String izmersIzvele = (String) izmers.getSelectedItem();
-        if (izmersIzvele.equals("Mazā - 7.50€")) {
-        	kopa += mazaPica;
-        } else if (izmersIzvele.equals("Vidējā - 10.00€")) {
-        	kopa += videjaPica;
-        } else if (izmersIzvele.equals("Lielā - 15.99€")) {
-        	kopa += lielaPica;
-        }
-        if (!piedevas.getSelectedItem().equals("Nav")) {
-        	kopa += piedevasCena;
-        }
-        if (!merce.getSelectedItem().equals("Nav")) {
-        	kopa += mercesCena;
-        }
-        if (piegadesLauks.isSelected()) {
-        	kopa += 3.15;
-        }
-        int daudzums = Integer.parseInt(picasDaudzumaLauks.getText());
-        kopa *= daudzums;
-
-        return kopa;
     }
  }
 
