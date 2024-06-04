@@ -32,7 +32,6 @@ class PicasAplikacija extends JFrame implements ActionListener{
     private JComboBox<String> izmers, piedevas, merce;
     private JButton pasutijumaPoga;
     private JLabel imageLabel;
-    private JLabel cenaLabel;
 
     private static final double mazaPica = 7.50;
     private static final double videjaPica = 10.00;
@@ -155,12 +154,6 @@ class PicasAplikacija extends JFrame implements ActionListener{
         picasDaudzumaLauks.setBounds(150, 270, 100, 25);
         picasDaudzumaLauks.setText("1");
         add(picasDaudzumaLauks);
-        
-        
-        cenaLabel = new JLabel("Kopējā cena: 0.00€");
-        cenaLabel.setBounds(20, 300, 150, 25);
-        add(cenaLabel);
-
 
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -178,17 +171,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e){
-    
-    	if (e.getSource() == izmers || e.getSource() == piedevas || e.getSource() == merce || e.getSource() == piegadesLauks || e.getSource() == pasutijumaPoga) {
-            int picasDaudzums = Integer.parseInt(picasDaudzumaLauks.getText());
-            double kopejasIzmaksas = kopIzmaksas((String) izmers.getSelectedItem(), 
-                (String) piedevas.getSelectedItem(), (String) merce.getSelectedItem(),
-                piegadesLauks.isSelected(), picasDaudzums);
-            
-            
-            cenaLabel.setText("Kopējā cena: €" + String.format("%.2f", kopejasIzmaksas));
-        
-    	}else  if (e.getSource() == izmers){
+            if (e.getSource() == izmers){
             	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
                 String izveletaisLielums = (String) izmers.getSelectedItem();
                 switch (izveletaisLielums){
@@ -276,7 +259,6 @@ class PicasAplikacija extends JFrame implements ActionListener{
             piedevas.setSelectedIndex(0);
             merce.setSelectedIndex(0);
             imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
-            cenaLabel.setText("Kopējā cena: €0.00");
        }
     }
     
