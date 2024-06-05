@@ -56,7 +56,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
         
         vardaLauks.addFocusListener(new FocusListener(){
             public void focusGained(FocusEvent e){
-                skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
+                skana("audio\\click2.wav");
             }
             public void focusLost(FocusEvent e){
                 
@@ -72,7 +72,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
         
         addresesLauks.addFocusListener(new FocusListener(){
             public void focusGained(FocusEvent e) {
-                skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
+                skana("audio\\click2.wav");
             }
             public void focusLost(FocusEvent e){
                 
@@ -88,7 +88,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
         
         numuraLauks.addFocusListener(new FocusListener(){
             public void focusGained(FocusEvent e){
-                skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
+                skana("audio\\click2.wav");
             }
             public void focusLost(FocusEvent e){
                 
@@ -105,9 +105,9 @@ class PicasAplikacija extends JFrame implements ActionListener{
         piegadesLauks.addItemListener(new ItemListener(){
             public void itemStateChanged(ItemEvent e){
                 if (e.getStateChange() == ItemEvent.SELECTED){
-                    skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
+                    skana("audio\\click2.wav");
                 }else if (e.getStateChange() == ItemEvent.DESELECTED) {
-                    skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click2.wav");
+                    skana("audio\\click2.wav");
                 }
             }
         });
@@ -139,7 +139,7 @@ class PicasAplikacija extends JFrame implements ActionListener{
         
         imageLabel = new JLabel();
         imageLabel.setBounds(280, 5, 400, 400);
-        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
+        imageLabel.setIcon(new ImageIcon("images\\mazaPica.png"));
         add(imageLabel);
 
         pasutijumaPoga = new JButton("Pasūtīt");
@@ -201,55 +201,55 @@ class PicasAplikacija extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
     	
             if (e.getSource() == izmers){
-            	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
+            	skana("audio\\click.wav");
                 String izveletaisLielums = (String) izmers.getSelectedItem();
                 switch (izveletaisLielums){
                     case "Mazā - 7.50€":
-                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
+                        imageLabel.setIcon(new ImageIcon("images\\mazaPica.png"));
                         break;
                     case "Vidējā - 10.00€":
-                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\videjaPica.png"));
+                        imageLabel.setIcon(new ImageIcon("images\\videjaPica.png"));
                         break;
                     case "Lielā - 15.99€":
-                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\LielaPica.png"));
+                        imageLabel.setIcon(new ImageIcon("images\\LielaPica.png"));
                         break;
                 }
                 
             }else if (e.getSource() == piedevas){
-            	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
+            	skana("audio\\click.wav");
                 String izveletasPiedevas = (String) piedevas.getSelectedItem();
                 switch (izveletasPiedevas){
                     case "Šampinjoni - 3.99€":
-                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\senes1.png"));
+                        imageLabel.setIcon(new ImageIcon("images\\senes1.png"));
                         break;
                     case "Olivas - 3.99€":
-                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\olive1.png"));
+                        imageLabel.setIcon(new ImageIcon("images\\olive1.png"));
                         break;
                     case "Nav":
-                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\nav1.png"));
+                        imageLabel.setIcon(new ImageIcon("images\\nav1.png"));
                         break;
                 }
                 
             }else if (e.getSource() == merce){
-            	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
+            	skana("audio\\click.wav");
                 String izveletaMerce = (String) merce.getSelectedItem();
                 switch (izveletaMerce){
                     case "Tomātu - 1.99€":
-                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\tomato1.png"));
+                        imageLabel.setIcon(new ImageIcon("images\\tomato1.png"));
                         break;
                     case "Majonēze - 1.99€":
-                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mayo1.png"));
+                        imageLabel.setIcon(new ImageIcon("images\\mayo1.png"));
                         break;
                     case "Siera mērce - 1.99€":
-                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\siera1.png"));
+                        imageLabel.setIcon(new ImageIcon("images\\siera1.png"));
                         break;
                     case "Nav":
-                        imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\nav1.png"));
+                        imageLabel.setIcon(new ImageIcon("images\\nav1.png"));
                         break;
                 }
                 
             }else if (e.getSource() == pasutijumaPoga){
-            	skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
+            	skana("audio\\click.wav");
                 String vards = vardaLauks.getText();
                 String addrese = addresesLauks.getText();
                 String numurs = numuraLauks.getText();
@@ -288,10 +288,10 @@ class PicasAplikacija extends JFrame implements ActionListener{
             merce.setSelectedIndex(0);
             picasDaudzumaLauks.setText("1");
             kopejaCenaLabel.setText("Kopējā cena: ");
-            imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
+            imageLabel.setIcon(new ImageIcon("images\\mazaPica.png"));
             
             }else if (e.getSource() == okPoga) {
-                skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\click.wav");
+                skana("audio\\click.wav");
                 double kopa = kopIzmaksas(
                         (String) izmers.getSelectedItem(), 
                         (String) piedevas.getSelectedItem(), 
@@ -312,11 +312,11 @@ class PicasAplikacija extends JFrame implements ActionListener{
                 merce.setSelectedIndex(0);
                 picasDaudzumaLauks.setText("1");
                 kopejaCenaLabel.setText("Kopējā cena: ");
-                imageLabel.setIcon(new ImageIcon("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\images\\mazaPica.png"));
+                imageLabel.setIcon(new ImageIcon("images\\mazaPica.png"));
                 
                 
             }else if(e.getSource() == izietPoga){
-                skana("C:\\Users\\meguc\\eclipse-workspace\\jaunarajsjanvaris_pica\\src\\audio\\exit.wav");
+                skana("audio\\exit.wav");
             	JOptionPane.showMessageDialog(null, "Paldies, ka izmantojat mūsu picēriju!");
             	System.exit(0);
        }

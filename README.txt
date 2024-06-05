@@ -11,4 +11,6 @@ Java projekts, kas ļauj lietotājiem pasūtīt picas, izvēloties izmēru, pied
 - [x] Implementēt picas pasūtīšanas funkcionalitāti
 - [x] Izveidot picas aplikācijas sākuma ekrānu
 - [x] Pārbaudīt programmas darbību
+- [ ] Test
+
 
